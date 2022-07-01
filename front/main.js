@@ -21,5 +21,18 @@ const newUser = {
   city: "Rio do sul"
 }
 
+function getUser(id) {
+  axios.get(`${url}/${id}`)
+  .then( response => {
+    const data = response.data
+    userName.textContent = JSON.stringify(data.name);
+    userCity.textContent = JSON.stringify(data.city);
+    userId.textContent = JSON.stringify(data.id);
+    userAvatar.src = (data.avatar);
+  })
+  .catch( error => console.log(error) )
+}
+
 getUsers()
 addUser(newUser)
+getUser(19)
