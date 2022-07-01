@@ -4,9 +4,22 @@ function getUsers() {
   axios.get(url)
   .then( response => {
     apiResult.textContent = JSON.stringify(response.data);
-    // console.log(response)
+    // console.log(response) // ver o que vai ser a resposta
   })
   .catch( error => console.log(error) )
 }
 
+function addUser(newUser) {
+  axios.post(url, newUser)
+  .then(response => console.log(response) )
+  .catch( error => console.log(error) )
+}
+
+const newUser = {
+  name: "Eduardo da Silva",
+  avatar: "https://picsum.photos/200/300",
+  city: "Rio do sul"
+}
+
 getUsers()
+addUser(newUser)
