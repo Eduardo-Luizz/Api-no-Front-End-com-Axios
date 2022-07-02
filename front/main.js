@@ -45,7 +45,14 @@ const userUpdated = {
   city: "Rio de janeiro"
 }
 
-updateUser(1, userUpdated)
+function deleteUser(id) {
+  axios.delete(`${url}/${id}`, userUpdated)
+  .then( response => console.log(response) )
+  .catch( error => console.log(error) )
+}
+
+// updateUser(1, userUpdated)
 getUsers()
 addUser(newUser)
 getUser(19)
+deleteUser(9)
